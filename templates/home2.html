@@ -23,17 +23,17 @@ body, h1,h2,h3,h4,h5,h6 {font-family: cursive;}
     <i class="fa fa-user w3-xxlarge"></i>
     <p>Profile</p>
   </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <a href="#quizzes" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-play w3-xxlarge"></i>
     <p>Start A Quiz</p>
   </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <a href="#stats" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-eye w3-xxlarge"></i>
-    <p>Help</p>
+    <p>Stats</p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <a href="#top5" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>The Developers</p>
+    <p>Top 5</p>
   </a>
 </nav>
 <!---->
@@ -46,81 +46,125 @@ body, h1,h2,h3,h4,h5,h6 {font-family: cursive;}
   </header>
 
   <!-- About Section -->
-  <div class=" w3-justify w3-text-black w3-red" id="about">
+  <div class=" w3-justify w3-text-black w3-red" id="quizzes" style="height:270px">
     <h2 class="w3-text-black" style="text-align: center; font-size: xxx-large;">Choose a category</h2>
     <hr style="width:200px; margin-left: 39%; color: black;">
-      <div style="height: 200px;">
-        <button class="categories" style="margin-left: 150px; margin-top: 40px;" onclick="location.href = '/profile/{{item.get('username')}}/quiz/Sports';">Sports</button>
+      <div class="ranking" style="margin-top:50px;" >
+        <button class="categories" onclick="location.href = '/profile/{{item.get('username')}}/quiz/Sports';">Sports</button>
         <button class="categories" onclick="location.href = '/profile/{{item.get('username')}}/quiz/Celebrities';" >Celebrities</button>
         <button class="categories" onclick="location.href = '/profile/{{item.get('username')}}/quiz/Politics';">Politics</button>
         <button class="categories" onclick="location.href = '/profile/{{item.get('username')}}/quiz/History';">History</button>
       </div>
 </div>
-   </div><br>
+
   <!-- End About Section -->
-  </div>
 
-  <!-- Portfolio Section -->
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">My Photos</h2>
-    <hr style="width:200px" class="w3-opacity">
+  <!-- Start Stats Section-->
 
-    <!-- Grid for photos -->
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/rocks.jpg" style="width:100%">
-        <img src="/w3images/sailboat.jpg" style="width:100%">
+  <div class="w3-justify w3-text-black w3-red" id="stats">
+    <h2 style="text-align:center">Here Are The Top 5 In All Categories</h2>
+    <hr style="width:200px; margin-left: 39%; color: black;" class="w3-opacity">
+
+    <div class="ranking">
+      <div class="categories_rank">
+        <h2>Sports</h2>
+        <ol>
+          <li>{{sports[0].get('user_id', "") + ": " + sports[0].get('score',"")}}</li>
+          <li>{{sports[1].get('user_id', "") + ": " + sports[1].get('score',"")}}</li>
+          <li>{{sports[2].get('user_id', "") + ": " + sports[2].get('score',"")}}</li>
+          <li>{{sports[3].get('user_id', "") + ": " + sports[3].get('score',"")}}</li>
+          <li>{{sports[4].get('user_id', "") + ": " + sports[4].get('score',"")}}</li>
+        </ol>
       </div>
-
-      <div class="w3-half">
-        <img src="/w3images/underwater.jpg" style="width:100%">
-        <img src="/w3images/chef.jpg" style="width:100%">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/p6.jpg" style="width:100%">
+      <div class="categories_rank">
+        <h2>Politics</h2>
+        <ol>
+          <li>{{politics[0].get('user_id', "") + ": " + politics[0].get('score',"")}}</li>
+          <li>{{politics[1].get('user_id', "") + ": " + politics[1].get('score',"")}}</li>
+          <li>{{politics[2].get('user_id', "") + ": " + politics[2].get('score',"")}}</li>
+          <li>{{politics[3].get('user_id', "") + ": " + politics[3].get('score',"")}}</li>
+          <li>{{politics[4].get('user_id', "") + ": " + politics[4].get('score',"")}}</li>
+        </ol>
       </div>
-    <!-- End photo grid -->
+      <div class="categories_rank">
+        <h2>History</h2>
+        <ol>
+          <li>{{history[0].get('user_id', "") + ": " + history[0].get('score',"")}}</li>
+          <li>{{history[1].get('user_id', "") + ": " + history[1].get('score',"")}}</li>
+          <li>{{history[2].get('user_id', "") + ": " + history[2].get('score',"")}}</li>
+          <li>{{history[3].get('user_id', "") + ": " + history[3].get('score',"")}}</li>
+          <li>{{history[4].get('user_id', "") + ": " + history[4].get('score',"")}}</li>
+        </ol>
+      </div>
+      <div class="categories_rank">
+        <h2>Celebrities</h2>
+        <ol>
+          <li>{{celebrities[0].get('user_id', "") + ": " + celebrities[0].get('score',"")}}</li>
+          <li>{{celebrities[1].get('user_id', "") + ": " + celebrities[1].get('score',"")}}</li>
+          <li>{{celebrities[2].get('user_id', "") + ": " + celebrities[2].get('score',"")}}</li>
+          <li>{{celebrities[3].get('user_id', "") + ": " + celebrities[3].get('score',"")}}</li>
+          <li>{{celebrities[4].get('user_id', "") + ": " + celebrities[4].get('score',"")}}</li>
+        </ol>
+      </div>
     </div>
-  <!-- End Portfolio Section -->
+
   </div>
 
-  <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
+  <!-- End Stats Section-->
 
-    <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-    </div><br>
-    <p>Let's get in touch. Send me a message:</p>
 
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
-  <!-- End Contact Section -->
+  <!-- Ranking Section -->
+
+  <div class="w3-justify w3-text-black w3-red" id="top5">
+    <h2 style="text-align:center">Here Are The Top 5 In All Categories</h2>
+    <hr style="width:200px; margin-left: 39%; color: black;" class="w3-opacity">
+
+    <div class="ranking">
+      <div class="categories_rank">
+        <h2>Sports</h2>
+        <ol>
+          <li>{{sports[0].get('user_id', "") + ": " + sports[0].get('score',"")}}</li>
+          <li>{{sports[1].get('user_id', "") + ": " + sports[1].get('score',"")}}</li>
+          <li>{{sports[2].get('user_id', "") + ": " + sports[2].get('score',"")}}</li>
+          <li>{{sports[3].get('user_id', "") + ": " + sports[3].get('score',"")}}</li>
+          <li>{{sports[4].get('user_id', "") + ": " + sports[4].get('score',"")}}</li>
+        </ol>
+      </div>
+      <div class="categories_rank">
+        <h2>Politics</h2>
+        <ol>
+          <li>{{politics[0].get('user_id', "") + ": " + politics[0].get('score',"")}}</li>
+          <li>{{politics[1].get('user_id', "") + ": " + politics[1].get('score',"")}}</li>
+          <li>{{politics[2].get('user_id', "") + ": " + politics[2].get('score',"")}}</li>
+          <li>{{politics[3].get('user_id', "") + ": " + politics[3].get('score',"")}}</li>
+          <li>{{politics[4].get('user_id', "") + ": " + politics[4].get('score',"")}}</li>
+        </ol>
+      </div>
+      <div class="categories_rank">
+        <h2>History</h2>
+        <ol>
+          <li>{{history[0].get('user_id', "") + ": " + history[0].get('score',"")}}</li>
+          <li>{{history[1].get('user_id', "") + ": " + history[1].get('score',"")}}</li>
+          <li>{{history[2].get('user_id', "") + ": " + history[2].get('score',"")}}</li>
+          <li>{{history[3].get('user_id', "") + ": " + history[3].get('score',"")}}</li>
+          <li>{{history[4].get('user_id', "") + ": " + history[4].get('score',"")}}</li>
+        </ol>
+      </div>
+      <div class="categories_rank">
+        <h2>Celebrities</h2>
+        <ol>
+          <li>{{celebrities[0].get('user_id', "") + ": " + celebrities[0].get('score',"")}}</li>
+          <li>{{celebrities[1].get('user_id', "") + ": " + celebrities[1].get('score',"")}}</li>
+          <li>{{celebrities[2].get('user_id', "") + ": " + celebrities[2].get('score',"")}}</li>
+          <li>{{celebrities[3].get('user_id', "") + ": " + celebrities[3].get('score',"")}}</li>
+          <li>{{celebrities[4].get('user_id', "") + ": " + celebrities[4].get('score',"")}}</li>
+        </ol>
+      </div>
+    </div>
+
+  <!-- End Ranking Section -->
   </div>
-
-    <!-- Footer -->
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  <!-- End footer -->
-  </footer>
+  </div><br>
 
 <!-- END PAGE CONTENT -->
 

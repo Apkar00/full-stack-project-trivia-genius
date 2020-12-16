@@ -3,7 +3,7 @@ import database_funcs
 from flask import Flask, render_template, request, redirect
 import database_funcs as df
 from trivia.triv_api import get_question, CORRECT_ANSWERS
-from trivia.triv_ranks import get_top_5
+from trivia.triv_ranks import get_top_5, get_top_5_of_all_categories, get_top_5_same_user
 
 app = Flask(__name__, static_url_path='', static_folder='static', template_folder='templates')
 
@@ -24,9 +24,11 @@ def add_user():
     else:
         return render_template('sign_up.html')
 
+
 @app.route("/rankings/<category>")
 def ranking(category):
     ranks = get_top_5(category)
+    print(ranks)
     return render_template('rankings.html', ranks=ranks)
     pass
 
@@ -64,7 +66,20 @@ def check(username, category):
 
 @app.route('/profile/<username>')
 def profile(username):
-    return render_template('home2.html', item={'username': username})
+    user_id = database_funcs.get_user_id(username)
+    user_top5 = get_top_5_same_user(user_id)  # send to html page
+    print(user_top5)
+    top_5 = get_top_5_of_all_categories()
+
+    dict_ = {}
+    for item in top_5:
+        for key, val in item.items():
+            dict_[key] = val
+    top_5 = dict_
+
+    return render_template('home2.html', item={'username': username}, sports=top_5.get('Sports'),
+                           politics=top_5.get('Politics'), celebrities=top_5.get('Celebrities'),
+                           history=top_5.get('History'))
 
 
 if __name__ == '__main__':

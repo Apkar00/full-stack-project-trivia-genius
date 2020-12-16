@@ -44,3 +44,11 @@ padding: 20px;
 margin: 10px;
 
 }
+
+.ranking{
+    display: flex;
+justify-content: center;
+}
+.categories_rank{
+padding:20px;
+}
