@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/quiz.css">
+</head>
+<!--style="background-color: lightblue;"-->
+    <body style="background-image: url('{{gif}}');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;"> 
+      <!--<img src='{{gif}}' style="margin-left: 35%;">-->
+      <h1 style="text-align: center; margin-top: 100px;">Your Score Is: {{score}} </h1>
+      <button onclick="location.href = '/profile/{{name}}';" style="margin-left: 50%; padding: 10px;" id="myButton" class="float-left submit-button" >Back</button>   
+     </body>
+</html>

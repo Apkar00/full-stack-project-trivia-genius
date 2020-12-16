@@ -52,7 +52,10 @@ def check(username, category):
         if int(answers[j]) == correct_answers[i]:
             counter += 1
     database_funcs.add_score(user_id, category, counter)
-    return str(counter)
+    if counter > 5:
+        return render_template('score.html',gif='https://media2.giphy.com/media/vLruErVSYGx8s/giphy.gif',score=counter,name=username)
+    else:
+        return render_template('score.html',gif='https://www.icegif.com/wp-content/uploads/buzz-lightyear-feeling-dumb.gif',score=counter,name=username)
 
 
 @app.route('/profile/<username>')
