@@ -1,14 +1,41 @@
+
+from flask import Flask, Response, request,render_template
+import database_funcs
 from flask import Flask, render_template, request, redirect
 import database_funcs as df
 from triv_api import get_question, CORRECT_ANSWERS
 
 app = Flask(__name__, static_url_path='', static_folder='static', template_folder='templates')
 
+app = Flask(__name__, static_url_path='',
+            static_folder='static',
+            template_folder='templates')
 
 @app.route('/')
-def root():
+def home():
     return render_template('home.html')
 
+
+@app.route("/sign_up", methods=['POST'])
+def add_user():
+        name = request.form.get("UserName")
+        password=request.form.get("psw")
+        result=database_funcs.check_user_name(name)
+        if not result:
+            database_funcs.add_user(name,password)
+            return render_template('home.html')#change to profile page
+        else:
+            return render_template('sign_up.html')
+
+@app.route("/log-in", methods=['POST'])
+def check_user():
+    name = request.form.get("UserName")
+    password=request.form.get("psw")
+    result=database_funcs.check_user(name,password)
+    if result:
+        return render_template('home.html')#change to profile page
+    else:
+        return render_template('log-in.html')#change to profile page
 
 @app.route('/profile/<username>/quiz/<category>')
 def quiz(username, category):
@@ -38,6 +65,5 @@ def check(username):
 def profile(username):
     return render_template('home2.html', item={'username': username})
 
-
 if __name__ == '__main__':
-    app.run(port=3000)
+    app.run(port=3001)
