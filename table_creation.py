@@ -1,13 +1,4 @@
-import pymysql
-
-connection = pymysql.connect(
-    host="localhost",
-    user="root",
-    password="password",
-    db="trivia",
-    charset="utf8",
-    cursorclass=pymysql.cursors.DictCursor
-)
+from database_config import connection
 
 
 def execute_query(table):
@@ -38,10 +29,9 @@ def create_scores_table():
     table = "scores (" \
             "       id INT AUTO_INCREMENT PRIMARY KEY," \
             "       user_id INT," \
-            "       quiz_id INT," \
+            "       category VARCHAR(32)," \
             "       score INT," \
-            "       FOREIGN KEY(user_id) REFERENCES users(id)," \
-            "       FOREIGN KEY(quiz_id) REFERENCES quizzes(id)" \
+            "       FOREIGN KEY(user_id) REFERENCES users(id)" \
             "       )"
     execute_query(table)
 

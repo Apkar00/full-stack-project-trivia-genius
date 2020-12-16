@@ -11,6 +11,15 @@ def add_user(username,password):
            except pymysql.IntegrityError as e:
                print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
 
+
+def add_score(user_id, category, score):
+    with connection.cursor() as cursor:
+        query = f"INSERT INTO scores" \
+                f" (user_id, category, score)" \
+                f" VALUES ({user_id}, '{category}', {score})"
+        cursor.execute(query)
+        connection.commit()
+
 def check_user (username,password):
     with connection.cursor() as cursor:
         query = f"SELECT username" \
