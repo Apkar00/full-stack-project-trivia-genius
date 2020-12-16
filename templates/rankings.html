@@ -18,11 +18,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: cursive;}
 </head>
 <body class="w3-light-grey">
     <h1>Here are the top rankings</h1><br>
-    <h2>{{ranks[0].get('name', "") + ": "ranks[0].get('score',"")}}</h2>
-    <h3>{{ranks[1].get('name',"") + ": "ranks[1].get('score',"")}}</h3>
-    <h4>{{ranks[2].get('name',"") + ": "ranks[2].get('score',"")}}</h4>
-    <h5>{{ranks[3].get('name',"") + ": "ranks[3].get('score',"")}}</h5>
-    <h6>{{ranks[4].get('name',"") + ": "ranks[4].get('score',"")}}</h6>
+    <h2>{{ranks[0].get('user_id', "") + ": " + ranks[0].get('score',"")}}</h2>
+    <h3>{{ranks[1].get('user_id',"") + ": "+ ranks[1].get('score',"")}}</h3>
+    <h4>{{ranks[2].get('user_id',"") + ": "+ ranks[2].get('score',"")}}</h4>
+    <h5>{{ranks[3].get('user_id',"") + ": "+ ranks[3].get('score',"")}}</h5>
+    <h6>{{ranks[4].get('user_id',"") + ": "+ ranks[4].get('score',"")}}</h6>
 </body>
 
 </html>
