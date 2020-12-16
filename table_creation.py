@@ -1,4 +1,14 @@
-from database_config import connection
+import pymysql
+
+connection = pymysql.connect(
+    host="localhost",
+    user="root",
+    password="password",
+    db="trivia",
+    charset="utf8",
+    cursorclass=pymysql.cursors.DictCursor
+)
+
 
 
 def execute_query(table):
