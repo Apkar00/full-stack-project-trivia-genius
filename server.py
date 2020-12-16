@@ -3,6 +3,7 @@ import database_funcs
 from flask import Flask, render_template, request, redirect
 import database_funcs as df
 from trivia.triv_api import get_question, CORRECT_ANSWERS
+from trivia.triv_ranks import get_top_5
 
 app = Flask(__name__, static_url_path='', static_folder='static', template_folder='templates')
 
@@ -22,6 +23,12 @@ def add_user():
         return render_template('home2.html', item={'username': name})
     else:
         return render_template('sign_up.html')
+
+@app.route("/rankings/<category>")
+def ranking(category):
+    ranks = get_top_5(category)
+    return render_template('rankings.html', ranks=ranks)
+    pass
 
 
 @app.route("/log-in", methods=['POST'])

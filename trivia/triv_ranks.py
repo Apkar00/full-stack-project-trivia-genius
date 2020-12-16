@@ -15,5 +15,7 @@ def get_top_5(category):
                 top5.append(name)
                 if len(top5) == 5:
                     break
+        while len(top5) < 5:
+            top5.append({})
         return top5
 
