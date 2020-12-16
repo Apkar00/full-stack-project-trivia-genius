@@ -1,5 +1,24 @@
-from database_config import connection
+from table_creation import connection
 
+def add_user(username,password):
+    with connection.cursor() as cursor:
+           try:
+               query = f"INSERT INTO users (username, password) VALUES ('{username}','{password}')"
+               cursor.execute(query)
+               connection.commit()
+           except pymysql.InternalError as e:
+               print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
+           except pymysql.IntegrityError as e:
+               print("Mysql Error %d: %s" % (e.args[0], e.args[1]))
+
+def check_user (username,password):
+    with connection.cursor() as cursor:
+        query = f"SELECT username" \
+                f" FROM users" \
+                f" WHERE username = '{username}'"\
+                f"AND password = '{password}'"
+        cursor.execute(query)
+        return cursor.fetchone() is not None
 
 def results_to_array(dict_, id_):
     return [item.get(id_) for item in dict_]
