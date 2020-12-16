@@ -79,9 +79,10 @@ def get_question(token=get_token(), category=None, difficulty=None, type=None, c
     all_questions = []
     for result in results:
         question_dict = {}
-        question_dict['question'] = result.get("question")
-        question_dict['correct_answer'] = result.get('correct_answer')
-        question_dict['incorrect_answers'] = result.get("incorrect_answers")
+        question_dict['question_string'] = result.get("question")
+        question_dict['choices'] = {}
+        question_dict['choices']['correct'] = result.get('correct_answer')
+        question_dict['choices']['wrong'] = result.get("incorrect_answers")
         all_questions.append(question_dict)
     return all_questions
 
