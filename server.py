@@ -20,7 +20,8 @@ def add_user():
     result = database_funcs.check_user_name(name)
     if not result:
         database_funcs.add_user(name, password)
-        return render_template('home2.html', item={'username': name})
+        return profile(name)
+        #return render_template('home2.html', item={'username': name})
     else:
         return render_template('sign_up.html')
 
@@ -39,7 +40,8 @@ def check_user():
     password = request.form.get("psw")
     result = database_funcs.check_user(name, password)
     if result:
-        return render_template('home2.html', item={'username': name})
+        return profile(name)
+        #return render_template('home2.html', item={'username': name})
     else:
         return render_template('log-in.html')
 
