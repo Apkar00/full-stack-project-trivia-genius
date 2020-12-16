@@ -68,7 +68,7 @@ def get_type_url(type):
         type_url = f"&type={type}"
     return type_url
 
-def get_question(token=get_token(), category=None, difficulty=None, type=None, category_dict = get_categories_dict()):
+def get_question(id, token=get_token(), category=None, difficulty=None, type=None, category_dict = get_categories_dict()):
     #TODO A problem may appear from using get_token() as a default value
     cat_url = get_category_url(category)
     diff_url = get_difficulty_url(difficulty)
@@ -79,6 +79,7 @@ def get_question(token=get_token(), category=None, difficulty=None, type=None, c
     data = get_fixed_data(token, data, url)
     results = data.get("results")
     all_questions = []
+    CORRECT_ANSWERS[id] = []
     for result in results:
         question_dict = {}
         question_dict['question'] = result.get("question")
@@ -86,11 +87,11 @@ def get_question(token=get_token(), category=None, difficulty=None, type=None, c
         question_dict['answers'].append(result.get('correct_answer'))
         question_dict['answers'] += (result.get("incorrect_answers"))
         random.shuffle(question_dict['answers'])
-        CORRECT_ANSWERS[result.get("question")] = question_dict['answers'].index(result.get('correct_answer'))
+        CORRECT_ANSWERS[id].append(question_dict['answers'].index(result.get('correct_answer')))
         all_questions.append(question_dict)
     return all_questions
 
-print(get_question())
-print(len(get_question()))
+print(get_question(1))
+print(len(get_question(1)))
+print(get_question(2))
 print(CORRECT_ANSWERS)
-print(get_categories())
