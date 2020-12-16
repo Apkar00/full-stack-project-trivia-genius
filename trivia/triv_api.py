@@ -91,7 +91,3 @@ def get_question(id, token=get_token(), category=None, difficulty=None, type=Non
         all_questions.append(question_dict)
     return all_questions
 
-print(get_question(1))
-print(len(get_question(1)))
-print(get_question(2))
-print(CORRECT_ANSWERS)
