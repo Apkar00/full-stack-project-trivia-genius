@@ -1,4 +1,5 @@
 // Array of all the questions and choices to populate the questions. This might be saved in some JSON file or a database and we would have to read the data in.
+/*
 var all_questions = [{
   question_string: "What color is the sky?",
   choices: {
@@ -24,7 +25,8 @@ var all_questions = [{
     wrong: ["Hermione Granger", "Ron Weasley", "Voldemort"]
   }
 }];
-
+*/
+var all_questions = JSON.parse(json_file)
 // An object for a Quiz, which will contain Question objects.
 var Quiz = function(quiz_name) {
   // Private fields for an instance of a Quiz object.
