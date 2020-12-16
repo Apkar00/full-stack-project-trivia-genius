@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = 'https://opentdb.com/api.php?amount=1'
+BASE_URL = 'https://opentdb.com/api.php?amount=10'
 
 def get_token():
 
@@ -75,15 +75,17 @@ def get_question(token=get_token(), category=None, difficulty=None, type=None, c
     url = BASE_URL + cat_url + diff_url + type_url + token_url
     data = requests.get(url).json()
     data = get_fixed_data(token, data, url)
-    result = data.get("results")[0]
-    question = result.get("question")
-    correct_answer = result.get('correct_answer')
-    incorrect_answers = result.get("incorrect_answers")
-    return question, correct_answer, incorrect_answers
+    results = data.get("results")
+    all_questions = []
+    for result in results:
+        question_dict = {}
+        question_dict['question'] = result.get("question")
+        question_dict['correct_answer'] = result.get('correct_answer')
+        question_dict['incorrect_answers'] = result.get("incorrect_answers")
+        all_questions.append(question_dict)
+    return all_questions
 
-
 print(get_question())
-print(get_question())
-print(get_question())
+print(len(get_question()))
 print(get_question())
 print(get_categories())
