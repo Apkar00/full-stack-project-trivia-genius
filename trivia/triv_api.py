@@ -1,5 +1,7 @@
 import requests
+import random
 
+CORRECT_ANSWERS = {}
 BASE_URL = 'https://opentdb.com/api.php?amount=10'
 
 def get_token():
@@ -79,14 +81,16 @@ def get_question(token=get_token(), category=None, difficulty=None, type=None, c
     all_questions = []
     for result in results:
         question_dict = {}
-        question_dict['question_string'] = result.get("question")
-        question_dict['choices'] = {}
-        question_dict['choices']['correct'] = result.get('correct_answer')
-        question_dict['choices']['wrong'] = result.get("incorrect_answers")
+        question_dict['question'] = result.get("question")
+        question_dict['answers'] = []
+        question_dict['answers'].append(result.get('correct_answer'))
+        question_dict['answers'] += (result.get("incorrect_answers"))
+        random.shuffle(question_dict['answers'])
+        CORRECT_ANSWERS[result.get("question")] = question_dict['answers'].index(result.get('correct_answer'))
         all_questions.append(question_dict)
     return all_questions
 
 print(get_question())
 print(len(get_question()))
-print(get_question())
+print(CORRECT_ANSWERS)
 print(get_categories())
