@@ -85,8 +85,8 @@ def get_question(token=get_token(), category=None, difficulty=None, type=None, c
         question_dict['answers'] = []
         question_dict['answers'].append(result.get('correct_answer'))
         question_dict['answers'] += (result.get("incorrect_answers"))
-        CORRECT_ANSWERS[result.get("question")] = result.get('correct_answer')
         random.shuffle(question_dict['answers'])
+        CORRECT_ANSWERS[result.get("question")] = question_dict['answers'].index(result.get('correct_answer'))
         all_questions.append(question_dict)
     return all_questions
 
