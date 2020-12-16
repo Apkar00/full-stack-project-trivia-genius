@@ -11,10 +11,14 @@ def home():
 
 @app.route("/sign_up", methods=['POST'])
 def add_user():
-    name = request.form.get("UserName")
-    password=request.form.get("psw")
-    database_funcs.add_user(name,password)
-    return render_template('home.html')
+        name = request.form.get("UserName")
+        password=request.form.get("psw")
+        result=database_funcs.check_user_name(name)
+        if not result:
+            database_funcs.add_user(name,password)
+            return render_template('home.html')#change to profile page
+        else:
+            return render_template('sign_up.html')
 
 @app.route("/log-in", methods=['POST'])
 def check_user():

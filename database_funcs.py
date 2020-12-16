@@ -20,6 +20,15 @@ def check_user (username,password):
         cursor.execute(query)
         return cursor.fetchone() is not None
 
+def check_user_name (username):
+    with connection.cursor() as cursor:
+        query = f"SELECT username" \
+                f" FROM users" \
+                f" WHERE username = '{username}'"
+        cursor.execute(query)
+        return cursor.fetchone() is not None
+
+
 def results_to_array(dict_, id_):
     return [item.get(id_) for item in dict_]
 
