@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<title>Trivia</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: cursive;}
+.w3-row-padding img {margin-bottom: 12px}
+.w3-sidebar {width: 120px;background: #222;}
+#main {margin-left: 120px}
+#enlarge_text{font-size: x-large;font-weight: bolder;}
+</style>
+<body class="w3-light-grey">
+<!-- Login -->
+<h1 style="text-align: center; color: black;">Incorrect User Name or/and Password</h1>
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto; margin-left: 50%;">Try Again</button>
+
+<div id="id03" class="modal">
+  <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/log-in" method="post">
+    <div class="container" style=" padding: 10px; margin-left: 10%; background-color: antiquewhite; margin-right: 10%; display: grid;">
+      <h1>Log-in</h1>
+      <hr>
+      <label for="UserName"><b>UserName</b></label>
+      <input type="text" placeholder="Enter UserName" name="UserName" required>
+    
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+    
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+    
+      <div class="clearfix">
+        <button type="button" onclick="location.href = '/'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Log-in</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id03');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    location.href = '/';
+  }
+}
+</script>
+
+</body>
+</html>
