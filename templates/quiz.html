@@ -2,25 +2,154 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Trivia</title>
-    <link rel="stylesheet" href="/quiz.css" />
-    <script src="/quiz.js"></script>
+    <title>Title</title>
+    <link rel="stylesheet" href="/quiz.css">
 </head>
 <body>
-<div id="quiz">
-  <h1 id="quiz-name"></h1>
-  <button id="submit-button">Submit Answers</button>
-  <button id="next-question-button">Next Question</button>
-  <button id="prev-question-button">Previous</button>
+<h1>Are You As Smart As You Think?</h1>
 
-  <div id="quiz-results">
+<form action="/profile/{{username}}/quiz/checkAnswers" method="post">
+    <div class="questions">
+  <p>{{item[0].get('question')}}</p>
+        </div>
+    <div class="answers">
+    <input type="radio" id=answer01 name="q0" value="0" required>
+  <label for="answer01">{{item[0].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer02" name="q0" value="1" required>
+  <label for="answer02">{{item[0].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer03" name="q0" value="2" required>
+  <label for="answer03">{{item[0].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer04" name="q0" value="3" required>
+  <label for="answer04">{{item[0].get('answers')[3]}}</label><br>
+    </div>
 
-    <p id="quiz-results-message"></p>
-    <p id="quiz-results-score"></p>
-    <button id="quiz-retry-button">Retry</button>
-
+    <div class="questions">
+    <p>{{item[1].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer11" name="q1" value="0" required>
+  <label for="answer11">{{item[1].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer12" name="q1" value="1">
+  <label for="answer12">{{item[1].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer13" name="q1" value="2">
+  <label for="answer13">{{item[1].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer14" name="q1" value="3">
+  <label for="answer14">{{item[1].get('answers')[3]}}</label><br>
   </div>
-</div>
+
+    <div class="questions">
+    <p>{{item[2].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer21" name="q2" value="0" required>
+  <label for="answer21">{{item[2].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer22" name="q2" value="1">
+  <label for="answer22">{{item[2].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer23" name="q2" value="2">
+  <label for="answer23">{{item[2].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer24" name="q2" value="3">
+  <label for="answer24">{{item[2].get('answers')[3]}}</label><br>
+    </div>
+
+    <div class="questions">
+    <p>{{item[3].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer31" name="q3" value="0" required>
+  <label for="answer31">{{item[3].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer32" name="q3" value="1">
+  <label for="answer32">{{item[3].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer33" name="q3" value="2">
+  <label for="answer33">{{item[3].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer34" name="q3" value="3">
+  <label for="answer34">{{item[3].get('answers')[3]}}</label><br>
+    </div>
+
+    <div class="questions">
+    <p>{{item[4].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer41" name="q4" value="0" required>
+  <label for="answer41">{{item[4].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer42" name="q4" value="1">
+  <label for="answer42">{{item[4].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer43" name="q4" value="2">
+  <label for="answer43">{{item[4].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer44" name="q4" value="3">
+  <label for="answer44">{{item[4].get('answers')[3]}}</label><br>
+    </div>
+
+    <div class="questions">
+    <p>{{item[5].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer51" name="q5" value="0" required>
+  <label for="answer51">{{item[5].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer52" name="q5" value="1">
+  <label for="answer52">{{item[5].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer53" name="q5" value="2">
+  <label for="answer53">{{item[5].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer54" name="q5" value="3">
+  <label for="answer54">{{item[5].get('answers')[3]}}</label><br>
+    </div>
+
+    <div class="questions">
+    <p>{{item[6].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer61" name="q6" value="0" required>
+  <label for="answer61">{{item[6].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer62" name="q6" value="1">
+  <label for="answer62">{{item[6].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer63" name="q6" value="2">
+  <label for="answer63">{{item[6].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer64" name="q6" value="3">
+  <label for="answer64">{{item[6].get('answers')[3]}}</label><br>
+    </div>
+
+    <div class="questions">
+    <p>{{item[7].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer71" name="q7" value="0" required>
+  <label for="answer71">{{item[7].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer72" name="q7" value="1">
+  <label for="answer72">{{item[7].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer73" name="q7" value="2">
+  <label for="answer73">{{item[7].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer74" name="q7" value="3">
+  <label for="answer74">{{item[7].get('answers')[3]}}</label><br>
+    </div>
+
+    <div class="questions">
+    <p>{{item[8].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer81" name="q8" value="0" required>
+  <label for="answer81">{{item[8].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer82" name="q8" value="1">
+  <label for="answer82">{{item[8].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer83" name="q8" value="2">
+  <label for="answer83">{{item[8].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer84" name="q8" value="3">
+  <label for="answer84">{{item[8].get('answers')[3]}}</label><br>
+    </div>
+
+    <div class="questions">
+    <p>{{item[9].get('question')}}</p>
+    </div>
+    <div class="answers">
+    <input type="radio" id="answer91" name="q9" value="0" required>
+  <label for="answer91">{{item[9].get('answers')[0]}}</label><br>
+    <input type="radio" id="answer92" name="q9" value="1">
+  <label for="answer92">{{item[9].get('answers')[1]}}</label><br>
+    <input type="radio" id="answer93" name="q9" value="2">
+  <label for="answer93">{{item[9].get('answers')[2]}}</label><br>
+    <input type="radio" id="answer94" name="q9" value="3">
+  <label for="answer94">{{item[9].get('answers')[3]}}</label><br>
+    </div>
+  <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>
