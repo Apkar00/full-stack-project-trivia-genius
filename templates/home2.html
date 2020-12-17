@@ -33,8 +33,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: cursive;}
     <p>Stats</p>
   </a>
   <a href="#top5" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
+    <i class="fa fa-trophy w3-xxlarge"></i>
     <p>Top 5</p>
+  </a>
+  <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-sign-out w3-xxlarge"></i>
+    <p>Sign Out</p>
   </a>
 </nav>
 <!---->
@@ -63,48 +67,48 @@ body, h1,h2,h3,h4,h5,h6 {font-family: cursive;}
   <!-- Start Stats Section-->
 
   <div class="w3-justify w3-text-black w3-red" id="stats">
-    <h2 style="text-align:center">Here Are The Top 5 In All Categories</h2>
+    <h2 style="text-align:center; font-size:xxx-large;">Here Are Your Top 5 In All Categories</h2>
     <hr style="width:200px; margin-left: 39%; color: black;" class="w3-opacity">
 
     <div class="ranking">
       <div class="categories_rank">
         <h2>Sports</h2>
         <ol>
-          <li>{{sports[0].get('user_id', "") + ": " + sports[0].get('score',"")}}</li>
-          <li>{{sports[1].get('user_id', "") + ": " + sports[1].get('score',"")}}</li>
-          <li>{{sports[2].get('user_id', "") + ": " + sports[2].get('score',"")}}</li>
-          <li>{{sports[3].get('user_id', "") + ": " + sports[3].get('score',"")}}</li>
-          <li>{{sports[4].get('user_id', "") + ": " + sports[4].get('score',"")}}</li>
+          <li>{{'Your Score' + ": " + user_sports[0].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_sports[1].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_sports[2].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_sports[3].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_sports[4].get('score',"-")}}</li>
         </ol>
       </div>
       <div class="categories_rank">
         <h2>Politics</h2>
         <ol>
-          <li>{{politics[0].get('user_id', "") + ": " + politics[0].get('score',"")}}</li>
-          <li>{{politics[1].get('user_id', "") + ": " + politics[1].get('score',"")}}</li>
-          <li>{{politics[2].get('user_id', "") + ": " + politics[2].get('score',"")}}</li>
-          <li>{{politics[3].get('user_id', "") + ": " + politics[3].get('score',"")}}</li>
-          <li>{{politics[4].get('user_id', "") + ": " + politics[4].get('score',"")}}</li>
+          <li>{{'Your Score' + ": " + user_politics[0].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_politics[1].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_politics[2].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_politics[3].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_politics[4].get('score',"-")}}</li>
         </ol>
       </div>
       <div class="categories_rank">
         <h2>History</h2>
         <ol>
-          <li>{{history[0].get('user_id', "") + ": " + history[0].get('score',"")}}</li>
-          <li>{{history[1].get('user_id', "") + ": " + history[1].get('score',"")}}</li>
-          <li>{{history[2].get('user_id', "") + ": " + history[2].get('score',"")}}</li>
-          <li>{{history[3].get('user_id', "") + ": " + history[3].get('score',"")}}</li>
-          <li>{{history[4].get('user_id', "") + ": " + history[4].get('score',"")}}</li>
+          <li>{{'Your Score' + ": " + user_history[0].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_history[1].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_history[2].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_history[3].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_history[4].get('score',"-")}}</li>
         </ol>
       </div>
       <div class="categories_rank">
         <h2>Celebrities</h2>
         <ol>
-          <li>{{celebrities[0].get('user_id', "") + ": " + celebrities[0].get('score',"")}}</li>
-          <li>{{celebrities[1].get('user_id', "") + ": " + celebrities[1].get('score',"")}}</li>
-          <li>{{celebrities[2].get('user_id', "") + ": " + celebrities[2].get('score',"")}}</li>
-          <li>{{celebrities[3].get('user_id', "") + ": " + celebrities[3].get('score',"")}}</li>
-          <li>{{celebrities[4].get('user_id', "") + ": " + celebrities[4].get('score',"")}}</li>
+          <li>{{'Your Score'+ ": " + user_celebrities[0].get('score',"-")}}</li>
+          <li>{{'Your Score'  + ": " + user_celebrities[1].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_celebrities[2].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_celebrities[3].get('score',"-")}}</li>
+          <li>{{'Your Score' + ": " + user_celebrities[4].get('score',"-")}}</li>
         </ol>
       </div>
     </div>
@@ -117,49 +121,49 @@ body, h1,h2,h3,h4,h5,h6 {font-family: cursive;}
   <!-- Ranking Section -->
 
   <div class="w3-justify w3-text-black w3-red" id="top5">
-    <h2 style="text-align:center">Here Are The Top 5 In All Categories</h2>
+    <h2 style="text-align:center;font-size:xxx-large;">Can You Beat These Highscores?</h2>
     <hr style="width:200px; margin-left: 39%; color: black;" class="w3-opacity">
 
     <div class="ranking">
       <div class="categories_rank">
         <h2>Sports</h2>
-        <ol>
+        <ul>
           <li>{{sports[0].get('user_id', "") + ": " + sports[0].get('score',"")}}</li>
           <li>{{sports[1].get('user_id', "") + ": " + sports[1].get('score',"")}}</li>
           <li>{{sports[2].get('user_id', "") + ": " + sports[2].get('score',"")}}</li>
           <li>{{sports[3].get('user_id', "") + ": " + sports[3].get('score',"")}}</li>
           <li>{{sports[4].get('user_id', "") + ": " + sports[4].get('score',"")}}</li>
-        </ol>
+        </ul>
       </div>
       <div class="categories_rank">
         <h2>Politics</h2>
-        <ol>
+        <ul>
           <li>{{politics[0].get('user_id', "") + ": " + politics[0].get('score',"")}}</li>
           <li>{{politics[1].get('user_id', "") + ": " + politics[1].get('score',"")}}</li>
           <li>{{politics[2].get('user_id', "") + ": " + politics[2].get('score',"")}}</li>
           <li>{{politics[3].get('user_id', "") + ": " + politics[3].get('score',"")}}</li>
           <li>{{politics[4].get('user_id', "") + ": " + politics[4].get('score',"")}}</li>
-        </ol>
+        </ul>
       </div>
       <div class="categories_rank">
         <h2>History</h2>
-        <ol>
+        <ul>
           <li>{{history[0].get('user_id', "") + ": " + history[0].get('score',"")}}</li>
           <li>{{history[1].get('user_id', "") + ": " + history[1].get('score',"")}}</li>
           <li>{{history[2].get('user_id', "") + ": " + history[2].get('score',"")}}</li>
           <li>{{history[3].get('user_id', "") + ": " + history[3].get('score',"")}}</li>
           <li>{{history[4].get('user_id', "") + ": " + history[4].get('score',"")}}</li>
-        </ol>
+        </ul>
       </div>
       <div class="categories_rank">
         <h2>Celebrities</h2>
-        <ol>
+        <ul>
           <li>{{celebrities[0].get('user_id', "") + ": " + celebrities[0].get('score',"")}}</li>
           <li>{{celebrities[1].get('user_id', "") + ": " + celebrities[1].get('score',"")}}</li>
           <li>{{celebrities[2].get('user_id', "") + ": " + celebrities[2].get('score',"")}}</li>
           <li>{{celebrities[3].get('user_id', "") + ": " + celebrities[3].get('score',"")}}</li>
           <li>{{celebrities[4].get('user_id', "") + ": " + celebrities[4].get('score',"")}}</li>
-        </ol>
+        </ul>
       </div>
     </div>
 

@@ -49,7 +49,7 @@ def check_user():
 @app.route('/profile/<username>/quiz/<category>')
 def quiz(username, category):
     user_id = df.get_user_id(username)
-    result = get_question(id=user_id, category=category, type='multiple')
+    result = get_question(id=user_id, category=category, type='multiple', difficulty=0)
     return render_template('quiz.html', item=result, username=username, category=category)
 
 
@@ -64,7 +64,7 @@ def check(username, category):
             counter += 1
     database_funcs.add_score(user_id, category, counter)
     if counter > 5:
-        return render_template('score.html',gif='https://media2.giphy.com/media/vLruErVSYGx8s/giphy.gif',score=counter,name=username)
+        return render_template('score.html',gif='https://media1.tenor.com/images/935a78b8abbd4933977c5b55742b3dc7/tenor.gif',score=counter,name=username)
     else:
         return render_template('score.html',gif='https://www.icegif.com/wp-content/uploads/buzz-lightyear-feeling-dumb.gif',score=counter,name=username)
 
@@ -84,7 +84,9 @@ def profile(username):
 
     return render_template('home2.html', item={'username': username}, sports=top_5.get('Sports'),
                            politics=top_5.get('Politics'), celebrities=top_5.get('Celebrities'),
-                           history=top_5.get('History'))
+                           history=top_5.get('History'), user_sports=user_top5.get('Sports'),
+                           user_politics=user_top5.get('Politics'), user_celebrities=user_top5.get('Celebrities'),
+                           user_history=user_top5.get('History'))
 
 
 if __name__ == '__main__':
