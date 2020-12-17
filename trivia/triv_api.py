@@ -68,6 +68,18 @@ def get_type_url(type):
         type_url = f"&type={type}"
     return type_url
 
+
+def remove_unencoded_list_symbols(list_):
+    temp = []
+    for item in list_:
+        temp.append(remove_unencoded_symbols(item))
+    return temp
+
+
+def remove_unencoded_symbols(string):
+    string = string.replace('&quot;', '"')
+    return string.replace('&#039;', "'")
+
 def get_question(id, token=get_token(), category=None, difficulty=None, type=None, category_dict = get_categories_dict()):
     #TODO A problem may appear from using get_token() as a default value
     cat_url = get_category_url(category)
@@ -82,12 +94,12 @@ def get_question(id, token=get_token(), category=None, difficulty=None, type=Non
     CORRECT_ANSWERS[id] = []
     for result in results:
         question_dict = {}
-        question_dict['question'] = result.get("question")
+        question_dict['question'] = remove_unencoded_symbols(result.get("question"))
         question_dict['answers'] = []
-        question_dict['answers'].append(result.get('correct_answer'))
-        question_dict['answers'] += (result.get("incorrect_answers"))
+        question_dict['answers'].append(remove_unencoded_symbols(result.get('correct_answer')))
+        question_dict['answers'] += (remove_unencoded_list_symbols(result.get("incorrect_answers")))
         random.shuffle(question_dict['answers'])
-        CORRECT_ANSWERS[id].append(question_dict['answers'].index(result.get('correct_answer')))
+        CORRECT_ANSWERS[id].append(question_dict['answers'].index(remove_unencoded_symbols(result.get('correct_answer'))))
         all_questions.append(question_dict)
     return all_questions
 

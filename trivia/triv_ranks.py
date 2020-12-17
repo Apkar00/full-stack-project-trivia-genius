@@ -67,7 +67,8 @@ def get_top_5(category, user_id=None):
             #entry['user_id'] = name
             if name not in list_of_names:
                 top5.append(entry)
-                list_of_names.append(name)
+                if not user_id:
+                    list_of_names.append(name)
                 if len(top5) == 5:
                     break
         while len(top5) < 5:

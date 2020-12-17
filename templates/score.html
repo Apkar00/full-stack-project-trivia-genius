@@ -6,13 +6,19 @@
     <link rel="stylesheet" href="/quiz.css">
 </head>
 <!--style="background-color: lightblue;"-->
-    <body style="background-image: url('{{gif}}');
+    <body >
+      <!--<img src='{{gif}}' style="margin-left: 35%;">-->
+      <button onclick="location.href = '/profile/{{name}}';" style="margin-left: 5%; padding: 10px;" id="myButton" class="float-left submit-button" >Back</button>
+      <h1 style="text-align: center; margin-top: 20px;">Your Score Is: {{score}} </h1>
+    <div style="display: flex;justify-content: center;">
+      <img src="{{gif}}" alt="An appropriate git for your score">
+    </div>
+    <div style="background-image: url('{{gif}}');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: contain;"> 
-      <!--<img src='{{gif}}' style="margin-left: 35%;">-->
-      <h1 style="text-align: center; margin-top: 100px;">Your Score Is: {{score}} </h1>
-      <button onclick="location.href = '/profile/{{name}}';" style="margin-left: 50%; padding: 10px;" id="myButton" class="float-left submit-button" >Back</button>   
-     </body>
+    background-size: contain;"
+    ></div>
+    </body>
+
 </html>
